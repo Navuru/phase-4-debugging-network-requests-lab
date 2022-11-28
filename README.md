@@ -63,11 +63,13 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+  There was an internal server error caused by a mis-spell on the create method. Instead of `Toy.create` there was `Toys.create`.
 
 - Update the number of likes for a toy
 
   - How I debugged:
+  There was an error of `Unexpected end of JSON input` caused by the update method not rendering any json while the patch request on the frontend expected json to be rendered. Fixed it by rendering json on the update method.
 
 - Donate a toy to Goodwill (and delete it from our database)
 
-  - How I debugged:
+  - How I debugged:The error was `ActionController::RoutingError (No route matches [DELETE] "/toys/9")`.This error arises due to the fact that there was no route specified for destroy/delete yet the method for destroy was present.Fixed the error by adding the destroy route.
